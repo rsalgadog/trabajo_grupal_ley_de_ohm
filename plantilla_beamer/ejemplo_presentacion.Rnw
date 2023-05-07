@@ -1,0 +1,85 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%% Plantilla de beamer %%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%    FS-492 y 493     %%%%%%%%%%%%%%%%%
+%%%%%%%%%  Elaborarda por: Ricardo Salgado   %%%%%%%%%%
+\documentclass{beamer}
+%%%%% Color, tema y fuente  del beamer %%%%%
+\usetheme{Madrid}
+\usecolortheme{crane}
+\usefonttheme{professionalfonts}
+% para mas temas y colores visite https://deic.uab.cat/~iblanes/beamer_gallery/
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%% Paquetes %%%%%%%%%%%%%%%%%
+\usepackage[spanish, es-tabla]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[cleanup, subfolder]{gnuplottex}
+\usepackage{newtxtext,newtxmath}
+\usepackage{color}
+\usepackage[nogin]{Sweave}
+%% usted puede agregar mas paquetes
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%% Configurando algunos aspectos del beamer %%%%%%
+\setbeamertemplate{caption}[numbered]
+\newcommand{\nologo}{\setbeamertemplate{logo}{}}
+\setbeamertemplate{navigation symbols}{} % quita los símbolo de navegación
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%% Título, autor, fecha, institución, logo %%%%%%%%%
+\title[Ejemplo Beamer]{\textbf{Ejemplo}}
+\author[\textbf{Ricardo Salgado}]{Laboratorio Avanzado\texorpdfstring{\\[2mm]}{}}
+\institute[UNAH]{Universidad Nacional Autónoma de Honduras}
+\date[\today]{}
+\titlegraphic{\vspace*{-5mm}
+\begin{center}
+\includegraphics[scale=0.45]{logo-unah-full-color.png}
+\includegraphics[scale=0.063]{LOGO2.png}
+\end{center}
+}
+\logo{\includegraphics[scale=0.035]{LOGO2.png}}% cambiar ruta a su ubicacion de imagen
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%% Inicia el cuerpo de presentación %%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+\SweaveOpts{concordance=TRUE}
+
+%%%%%%%%%%%%% Portada de la presentación %%%%%%%%%%%%%%%
+{\nologo 
+\begin{frame}
+\titlepage
+\end{frame}
+}
+%%%%%%%%%%%%%%%%% Slides %%%%%%%%%%%%%%%%%%%%%%
+\begin{frame} 
+\frametitle{Probando}
+Laboratorio avanzado una excelente clase
+\end{frame}
+
+%%%%%% Slide con código gnuplot %%%%%%%%%%%%%%%
+\begin{frame}[fragile] %se agrega fragile para usar código en en el slide
+\frametitle{Probando}
+\begin{figure}
+\begin{gnuplot}[terminal=cairolatex, scale=0.9]
+plot x t "Gráfico"
+\end{gnuplot}
+\caption{Probando}
+\end{figure}
+\end{frame}
+
+%%% Slide con chunk %%%%
+\begin{frame}[fragile]
+\frametitle{Probando}
+<<echo=false, results=tex>>=
+a <- c(2,4,6,8)
+b <- c(4,6,8,9)
+regresión <- lm(b~a)
+salida <- summary(regresión)
+tabla <- data.frame(a,b)
+tabla[2,"A"] <- salida$coefficients[1,1]
+library(xtable)
+xtable(tabla)
+@
+
+\end{frame}
+\end{document}
+
