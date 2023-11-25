@@ -3,14 +3,13 @@
 ## Instrucciones 
 La versión final de su repositorio debe contener:
 
-1. Un **.gitignore** que ignore todos los archivos auxiliares que se generan con la compilación LaTeX de un documento pdf o un beamer como ser archivos con la extension *.log, *.synctex.gz, *concordance.tex, *.aux, *.nav, *.snm, *.toc, *.out; también debe ignorar la carpeta gnuplottex creada por el paquete gnuplottex y otros archivos de compilación.
+1. Un **documento R script**  que contenga la o las funciones usadas para el correcto análisis de los datos de su experimento asignado el cual llamarán **funciones_nombre_experimento_grupo_n**.
 
-2. Un **documento R script**  que contenga la o las funciones usadas para el correcto análisis de los datos de su experimento asignado el cual llamarán **funciones_nombre_experimento_grupo_n**.
+2. Un **documento pdf** con su trabajo de laboratorio que contenga lo solicitado en el documento de lineamientos
 
-3. Un **documento pdf** con su trabajo de laboratorio que contenga lo solicitado en el documento de lineamientos
-
-4. El **documento Rnw** que genera su pdf anterior con un nombre adecuado.
-5. Un archivo con extensión .txt que contenga como fue la distribución del trabajo entre los miembros del equipo
+3. El **documento Rnw** que genera su pdf anterior con un nombre adecuado.
+4. Un archivo con extensión .txt que contenga como fue la distribución del trabajo entre los miembros del equipo
+5. Se recomienda localmente crear un **.gitignore** que ignore todos los archivos auxiliares que se generan con la compilación LaTeX de un documento pdf o un beamer como ser archivos con la extension *.log, *.synctex.gz, *concordance.tex, *.aux, *.nav, *.snm, *.toc, *.out; también debe ignorar la carpeta gnuplottex creada por el paquete gnuplottex y otros archivos de compilación.
 
 ## Otras recomendaciones 
 Trabajar un análisis de laboratorio con varias personas en Git puede ser muy útil para mantener un registro detallado y organizado de todo el trabajo. Aquí hay algunos consejos para trabajar eficazmente en un informe de laboratorio con varias personas en Git:
